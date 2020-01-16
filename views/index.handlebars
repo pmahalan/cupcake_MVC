@@ -1,0 +1,16 @@
+<h1>Cupcakes</h1>
+
+<ul>
+  {{#each cakes}}
+  <li>
+    <p>
+      {{this.id}}. {{this.plan}}
+      <button data-planid="{{this.id}}" class="delplan">Devour!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+{{!-- The code above was taken from the 10/watchlist activity from class--}}
+{{!-- AKA meant for a delete button. --}}
+{{!-- We will need to come back to this and modify it so that rather than deleting, it changes from devoured or not--}}
