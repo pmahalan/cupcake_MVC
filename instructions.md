@@ -35,7 +35,7 @@
 
 #### Controller setup
 
-1. Inside your `burger` directory, create a folder named `controllers`.
+1. Inside your `cupcake` directory, create a folder named `controllers`.
 
 2. In `controllers`, create the `burgers_controller.js` file.
 
