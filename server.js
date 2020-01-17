@@ -21,3 +21,4 @@ app.get("/", function(req, res) {
   });
 
 // the function above should get the data from the table "cupcake_table" and render it on index.handlebars!
+
