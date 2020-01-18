@@ -25,7 +25,11 @@ var cupcake = require("../models/cupcakes.js");
 // I want to get the data from my table "cupcake_table" to go to the index page.
 
 router.get("/", function(req, res) {
-    cupcake.all(function(data) {
+    res.redirect("/cupcakes");
+});
+
+router.get("/cupcakes", function(req, res) {
+    cupcake.selectAll(function(data) {
         var cakeObject = {cupcake_table: data};
         console.log(cakeObject);
         res.render("index", cakeObject);
@@ -40,8 +44,8 @@ router.get("/", function(req, res) {
 //   });
 // });
 
-router.post("/api/cakes", function(req, res) {
-    cupcake.create(["cupcake_name", "devoured"], [req.body.cupcake_name, req.body.devoured], function(result){
+router.post("/cupcakes/create", function(req, res) {
+    cupcake.insertOne(["cupcake_name", "devoured"], [req.body.cupcake_name, req.body.devoured], function(result){
         res.json({ id: result.insertId });
         //send back the ID of the new cupcake???
     });
@@ -66,10 +70,10 @@ router.post("/api/cakes", function(req, res) {
 //   );
 // });
 
-router.put("/api/cakes/:id", function(req, res) {
+router.put("/cupcakes/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     console.log("condition", condition);
-    cupcake.update(
+    cupcake.updateOne(
         {
             devoured: req.body.devoured
         },

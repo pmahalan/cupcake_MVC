@@ -1,8 +1,5 @@
 var ORMconnection = require("../config/orm.js");
 
-// create the code that will call the ORM functions using 
-// cupcake-specific input for the ORM.
-
 var cupcake = {
 
     selectAll: function(cb) {
@@ -23,6 +20,5 @@ var cupcake = {
         })
     }
 };
-
 
 module.exports = cupcake;

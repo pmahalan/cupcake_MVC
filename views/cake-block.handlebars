@@ -1,0 +1,10 @@
+{{!-- LOOK AT cat-block.handlebars FROM THE CATS ACTIVITY --}}
+
+{{!-- This is meant to allow the user to devour a cupcake. --}}
+<li>
+	{{cupcake-name}}
+    {{!-- This will display the name of the cupcake from the column in teh db --}}
+    <button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
+      {{#if devour}}DEVOUR{{else}}UN-DEVOUR{{/if}}
+    </button>
+</li>
