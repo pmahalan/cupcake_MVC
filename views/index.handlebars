@@ -1,25 +1,17 @@
 <h1>Cupcakes</h1>
 
-<h2>Not Devoured!</h2>
+<h2>DEVOURED</h2>
 
 <ul>
-  {{#each cakes}}
-    {{#unless devoured}}
-      {{> cakes/cake-block devour=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Devoured!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if devoured}}
-      {{> cakes/cake-block devour=false}}
+  {{#each cupcake_table}}
+    {{!-- above line refers to my db table name --}}
+    {{#if eat}}
+    {{!-- "eat" refers to line 27--}}
+      {{> cupcake_table/cake-block devour=true}}
+    {{!-- "devour" refers to cake-block, the last bit of the opening "button" line--}}
     {{/if}}
   {{/each}}
-</ul>
-
+</ul> 
 
 
 {{!-- This is meant to allow the user to add a cupcake. --}}
@@ -31,40 +23,10 @@
     <input type="text" id="cn" name="name">
   </div>
 
+  <div class="form-group">
+    <label for="devoury">Devour it?</label><br>
+    <input type="radio" name="eat" value="1" checked> Nom!<br>
+  </div>
+
   <button type="submit">Add</button>
 </form>
-
-
-
-
-<script type="text/javascript">
-
-    //$(".delplan").on("click", function(event) {
-    // This is shorthand for $(this).attr("data-planid")
-      //var id = $(this).data("planid");
-        // Send the DELETE request.
-    //$.ajax("/api/films/" + id, {
-      //type: "DELETE"
-
-    //upon the clicking of the button which has a class 
-    // of "delplan", it makes an AJAX request to "/api/films"
-    // and deletes that button. 
-    // you need to make yours so that
-    // upon clicking a button with a class of something like "devourcake", 
-    // it makes an API request to where the cakes are stored and changes
-    // the status from not devoured to devoured.
-
-    //maybe look at the cats example; 
-    // switiching between sleepy and not sleepy is a better analogy for what you're trying to do here.
-
-   // }).then(
-     // function() {
-       // console.log("deleted id ", id);
-        // Reload the page to get the updated list 
-        //location.reload();
-     // }
-   // );
- // });
-
-</script>
-

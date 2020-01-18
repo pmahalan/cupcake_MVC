@@ -1,27 +1,54 @@
-//below is front-end code to request information from the server-side
-//upon the user's listing of a new cupcake!
-$("create-form").on("submit", function(event) {
+
+$(function() {
+
+    //this first function deals with the creation of a new cupcake!
+    $(".create-form").on("submit", function(event) {
     event.preventDefault();
 
     var newCupcake = {
-        name: $("#cn").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+        // "cupcake_name" AND "devoured" ARE COLUMN NAMES.
+        cupcake_name: $("#cn").val().trim(),
+        // the orange stuff here is from a form div in index.handlebars
+        devoured: $("[name=eat]:checked").val().trim()
     };
 
-    //send teh POST request
+    // Send the POST request.
     $.ajax("/cupcakes/create", {
         type: "POST",
         data: newCupcake
       }).then(
         function() {
-          console.log("listed a new cupcake!");
+          console.log("yummy!");
           // Reload the page to get the updated list
           location.reload();
         }
       );
-})
+    });
 
-$("")
+    
+    // This function will deal with changing a cupcake's devour status.
+    $(".change-devour").on("click", function(event) {
+        var id = $(this).data("id");
+        var newDevour = $(this).data("newdevour");
+        //both of the above variables refer to things on line 4 of that file!
+  
+      var newDevourState = {
+          devoured: newDevour
+          //"devoured" IS THE NAME OF THE COLUMN IN OUR DB.
+          // "newDevour" is the var from line 5.
+        };
+    
+        // Send the PUT request.
+        $.ajax("/cupcakes/create" + id, {
+          type: "PUT",
+          data: newDevourState
+        }).then(
+          function() {
+            console.log("devoured that cupcake!");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
 
-// create the code that will call the ORM functions using 
-// cupcake-specific input for the ORM.
+});
