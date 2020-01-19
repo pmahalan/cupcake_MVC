@@ -28,7 +28,7 @@ router.get("/", function(req, res) {
     res.redirect("/cupcakes");
  });
 
-router.get("/", function(req, res) {
+router.get("/cupcakes", function(req, res) {
     cupcake.selectAll(function(data) {
         var cakeObject = {
             cupcake_table: data

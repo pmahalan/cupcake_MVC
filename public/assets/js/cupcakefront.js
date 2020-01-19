@@ -1,5 +1,6 @@
 
     //this first function deals with the creation of a new cupcake!
+
     $(".create-form").on("submit", function(event) {
     event.preventDefault();
 
