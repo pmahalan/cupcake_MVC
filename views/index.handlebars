@@ -11,9 +11,11 @@
 
  {{!--<body>--}}
 
-<h1>Cupcakes</h1>
 
-<h2>DEVOURED</h2>
+{{!-- First row -- blank space --}}
+<div class="row">  </div>
+
+<h1 style="margin-left: 80px; margin-top: 80px; text-align: center">Cupcakes</h1>
 
 <ul>
   {{#each cupcake_table}}
@@ -26,23 +28,32 @@
   {{/each}}
 </ul> 
 
-
+{{!-- New row --}}
 {{!-- This is meant to allow the user to add a cupcake. --}}
-<h2>Add a Cupcake</h2>
-<form class="create-form">
+<h2 style="margin-left: 80px; margin-top: 40px; text-align: center">Add a Cupcake</h2>
 
-  <div class="form-group">
-    <label for="cn">Cupcake Name:</label>
-    <input type="text" id="cn" name="name">
-  </div>
+<form class="create-form" class="row">
+        {{!- first column: "cupcake name" --}}
+        <div class="form-group" >
+          <label style="margin-left: 80px" class="col-sm-2" for="cn">Cupcake Name:</label>
 
-  <div class="form-group">
-    <label for="devoury">Devour it?</label><br>
-    <input type="radio" name="eat" value="1" checked> Nom!<br>
-  </div>
+          {{!- second column: text entry filed --}}
+          <input style= type="text" id="cn" name="name" class="col-sm-4">
 
-  <button type="submit">Add</button>
+          {{!- third column: "add" button--}}
+          <button type="submit" class="col-sm-3">Add</button>
+        </div>
 </form>
 
+{{!- new row --}}
+
+  <div class="form-group" class="row">
+
+    <label style="margin-left: 80px" for="devoury" class="col-sm-2">Devour it?</label>
+    <input type="radio" name="eat" value="1" class="col-sm-1" checked> Nom!<br>
+
+  </div>
+
+<h2 style="margin-left: 80px; margin-top: 80px; text-align: center">DEVOURED:</h2>
  {{!--</body>--}}
  {{!--</html>--}}
