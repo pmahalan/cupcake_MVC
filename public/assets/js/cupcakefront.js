@@ -1,6 +1,4 @@
 
-$(function() {
-
     //this first function deals with the creation of a new cupcake!
     $(".create-form").on("submit", function(event) {
     event.preventDefault();
@@ -13,7 +11,7 @@ $(function() {
     };
 
     // Send the POST request.
-    $.ajax("/cupcakes/create", {
+    $.ajax("/api/cupcake_table", {
         type: "POST",
         data: newCupcake
       }).then(
@@ -25,6 +23,7 @@ $(function() {
       );
     });
 
+$(function() {
     
     // This function will deal with changing a cupcake's devour status.
     $(".change-devour").on("click", function(event) {
@@ -39,7 +38,7 @@ $(function() {
         };
     
         // Send the PUT request.
-        $.ajax("/cupcakes/create" + id, {
+        $.ajax("/api/cupcake-table" + id, {
           type: "PUT",
           data: newDevourState
         }).then(
@@ -51,4 +50,4 @@ $(function() {
         );
       });
 
-});
+ });

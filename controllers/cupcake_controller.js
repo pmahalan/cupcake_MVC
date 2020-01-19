@@ -26,11 +26,13 @@ var cupcake = require("../models/cupcakes.js");
 
 router.get("/", function(req, res) {
     res.redirect("/cupcakes");
-});
+ });
 
-router.get("/cupcakes", function(req, res) {
+router.get("/", function(req, res) {
     cupcake.selectAll(function(data) {
-        var cakeObject = {cupcake_table: data};
+        var cakeObject = {
+            cupcake_table: data
+        };
         console.log(cakeObject);
         res.render("index", cakeObject);
     });
@@ -44,8 +46,11 @@ router.get("/cupcakes", function(req, res) {
 //   });
 // });
 
-router.post("/cupcakes/create", function(req, res) {
-    cupcake.insertOne(["cupcake_name", "devoured"], [req.body.cupcake_name, req.body.devoured], function(result){
+router.post("/api/cupcake_table", function(req, res) {
+    cupcake.insertOne(["cupcake_name", "devoured"
+], [
+    req.body.cupcake_name, req.body.devoured
+], function(result){
         res.json({ id: result.insertId });
         //send back the ID of the new cupcake???
     });
@@ -70,21 +75,22 @@ router.post("/cupcakes/create", function(req, res) {
 //   );
 // });
 
-router.put("/cupcakes/:id", function(req, res) {
+// temporarily changing it from "/cupcakes/:id" to "/"
+router.put("/api/cupcake_table/:id", function(req, res) {
     var condition = "id = " + req.params.id;
+
     console.log("condition", condition);
-    cupcake.updateOne(
-        {
+
+    cupcake.updateOne({
             devoured: req.body.devoured
-        },
-        condition,
-        function(result) {
+        }, condition, function(result) {
             if (result.changedRows === 0) {
+              // If no rows were changed, then the ID must not exist, so 404
                 return res.status(404).end();
-            }
+            } else {
             res.status(200).end();
         }
-    );
+      });
 });
 //this above "put" function will deal with whether or not the cupcake has been devoured!
 

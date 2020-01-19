@@ -8,14 +8,14 @@ var cupcake = {
         });
     },
 
-    insertOne: function(table, cols, vals) {
-        ORMconnection.insertOne("cupcake_table", table, cols, function(res) {
+    insertOne: function(cols, vals, cb) {
+        ORMconnection.insertOne("cupcake_table", cols, vals, function(res) {
             cb(res);
         })
     },
 
-    updateOne: function(table, objColVals, condition) {
-        ORMconnection.updateOne("cupcake_table", table, objColVals, function(res) {
+    updateOne: function(objColVals, condition, cb) {
+        ORMconnection.updateOne("cupcake_table", objColVals, condition, function(res) {
             cb(res);
         })
     }
