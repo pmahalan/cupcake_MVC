@@ -4,7 +4,7 @@
 
 The purpose of this assignment was to create a full-stack web application which references a MySQL database. I chose to make my database a variety of cupcakes, which in turn are to be displayed on the front-end side of the application. Upon successful development of all the app's features, the user will be able to click on a button next to any given cupcake to "Devour" it; this will change the status of that particular cupcake in the database from "not devoured" to "Devoured". Additionally, upon the successful development of all the app's features, the user will be able to add their own cupcake names to the database. 
 
-In spite of my best efforts, something in my code is currently preventing the content from my database from being displayed on the front-end webpage. As is visible in the screenshot below, the file "cupcake_controller.js" is supposed to reference data from my MySQL table (called "cupcake_table") and render that data on the "index" handlebars page. 
+After some de-bugging, I was successful in getting the content which was pre-coded into the MySQL database to be displayed on the front-end. Gaps in functionality remain, however, in user interactivity. Text entered into the search field is not being added to the MySQL database upon the clicking of the "add" button (and therefore isn't being added to the front-end list either), and clicking on the "devour" button does not change the positioning or the status of any of the cupcakes.
 
 Additionally, this project utlizes ORM (object-relational mapping). The aim of the ORM methods in general is to help "convert data between incompatible type systems", and within my project specifically, to help convert data from my database (MySQL) to HTML.
 
