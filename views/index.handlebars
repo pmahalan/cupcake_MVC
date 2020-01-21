@@ -20,11 +20,11 @@
 <ul>
   {{#each cupcake_table}}
     {{!-- above line refers to my db table name --}}
-    {{#if eat}}
+    {{#unless devoured}}
     {{!-- "eat" refers to line 27--}}
-      {{> cupcake_table/cake-block devour=true}}
-    {{!-- "devour" refers to cake-block, the last bit of the opening "button" line--}}
-    {{/if}}
+      {{> cupcake-table/cake-block devour=true}}
+      {{!-- ^ "cupcake-table" above refers to the folder name within layouts. (and cake-block is the file within) --}}
+    {{/unless}}
   {{/each}}
 </ul> 
 
