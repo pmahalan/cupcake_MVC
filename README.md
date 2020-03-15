@@ -1,5 +1,8 @@
 # MySQL Employee Tracker
 
+### Heroku Deployed Application
+https://intense-falls-86152.herokuapp.com/cupcakes
+
 ### GH Pages URL: https://pmahalan.github.io/MVC_hw_13/
 
 The purpose of this assignment was to create a full-stack web application which references a MySQL database. I chose to make my database a variety of cupcakes, which in turn are to be displayed on the front-end side of the application. Upon successful development of all the app's features, the user will be able to click on a button next to any given cupcake to "Devour" it; this will change the status of that particular cupcake in the database from "not devoured" to "Devoured". Additionally, upon the successful development of all the app's features, the user will be able to add their own cupcake names to the database. 
